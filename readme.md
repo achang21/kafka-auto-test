@@ -1,7 +1,11 @@
 # kafka + rest-assured + spring-boot test automation demo
 
 This repository is a small demo showing how to write integration tests for a Spring Boot application that produces Kafka events and how to verify those events using Testcontainers, Apache Kafka clients, and RestAssured.
-
+### Key Points for This Demo
+- (1) Test Code call API(orders) by using Rest-Assured
+- (2) The API(orders with SpringBoot application) triggers a Kafka event (order-created) to be produced.
+- (3) The test code consumes from the Kafka topic (order-created) and asserts the event payload.
+- (4) The key is to validate the end-to-end flow: API call -> Kafka event produced -> Kafka event consumed and verified, all within an automated test.
 ### What this project contains
 
 - A tiny Spring Boot application (`demo.DemoApplication`) with a REST endpoint that produces an `order-created` Kafka event.
